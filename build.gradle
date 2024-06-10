@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group 'Invitro'
+version '1.0'
+
+ext {
+    versions = [
+            allure       : '2.27.0',
+            selenide     : '7.3.2',
+            junit        : '5.10.2',
+            gson         : '2.11.0',
+            owner        : '1.0.12',
+            aspectjweaver: '1.9.22.1'
+    ]
+}
+
+dependencies {
+    testImplementation "io.qameta.allure:allure-selenide:${versions.allure}"
+    testImplementation "com.codeborne:selenide-appium:${versions.selenide}"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${versions.junit}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${versions.junit}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${versions.junit}"
+    testImplementation "com.google.code.gson:gson:${versions.gson}"
+    testImplementation "org.aeonbits.owner:owner:${versions.owner}"
+    testImplementation "org.aspectj:aspectjweaver:${versions.aspectjweaver}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
