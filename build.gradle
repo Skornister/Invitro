@@ -19,7 +19,7 @@ ext {
 
 dependencies {
     testImplementation "io.qameta.allure:allure-selenide:${versions.allure}"
-    testImplementation "com.codeborne:selenide-appium:${versions.selenide}"
+    testImplementation "com.codeborne:selenide:${versions.selenide}"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:${versions.junit}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${versions.junit}"
     testImplementation "org.junit.jupiter:junit-jupiter-params:${versions.junit}"
@@ -34,4 +34,10 @@ tasks.withType(JavaCompile).configureEach {
 
 test {
     useJUnitPlatform()
+    testLogging {
+        lifecycle {
+            events "passed", "skipped", "failed", "standardOut", "standardError"
+            exceptionFormat "full"
+        }
+    }
 }
