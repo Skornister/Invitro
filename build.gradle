@@ -13,7 +13,8 @@ ext {
             junit        : '5.10.2',
             gson         : '2.11.0',
             owner        : '1.0.12',
-            aspectjweaver: '1.9.22.1'
+            aspectjweaver: '1.9.22.1',
+            cucumber     : '7.18.0'
     ]
 }
 
@@ -26,6 +27,8 @@ dependencies {
     testImplementation "com.google.code.gson:gson:${versions.gson}"
     testImplementation "org.aeonbits.owner:owner:${versions.owner}"
     testImplementation "org.aspectj:aspectjweaver:${versions.aspectjweaver}"
+    testImplementation "io.cucumber:cucumber-java:${versions.cucumber}"
+    testImplementation "io.cucumber:cucumber-junit:${versions.cucumber}"
 }
 
 tasks.withType(JavaCompile).configureEach {

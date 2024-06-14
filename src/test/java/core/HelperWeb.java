@@ -1,17 +1,15 @@
 package core;
 
-import static com.codeborne.selenide.Selenide.webdriver;
-import static com.codeborne.selenide.WebDriverConditions.urlContaining;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-
 import com.codeborne.selenide.Selenide;
-
+import io.qameta.allure.Step;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WindowType;
 
 import java.time.Duration;
 
-import io.qameta.allure.Step;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class HelperWeb {
 

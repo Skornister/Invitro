@@ -23,9 +23,9 @@ public class ConfWebDriver {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         Configuration.browserCapabilities = capabilities;
-        Configuration.timeout = 10000;
         Configuration.browser = ConfigReader.webConfig.browser();
         Configuration.browserSize = ConfigReader.webConfig.browserSize();
         Configuration.browserVersion = ConfigReader.webConfig.browserVersion();
+        //Configuration.timeout = 10000;
     }
 }

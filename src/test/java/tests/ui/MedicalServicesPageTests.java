@@ -16,8 +16,13 @@ public class MedicalServicesPageTests extends TestBase {
     @Test
     @DisplayName("Menu on the medical services page")
     @Description("""
-            в разделе медицинские услуги https://www.invitro.ru/radiology/ сделать прокликивание всего меню.
-            в том числе с прокликиванием по подгруппам""")
+            1. в разделе медицинские услуги https://www.invitro.ru/radiology/ сделать прокликивание всего меню.
+            в том числе с прокликиванием по подгруппам
+            
+            
+            Открыть сайт https://www.invitro.ru/radiology/
+            Выбрать элемент меню второго уровня
+            """)
     public void testMenuMedicalServices() {
         HelperWeb.openUrl("https://www.invitro.ru/radiology/");
         medicalServicesPage.clickAllMenuAndCheckTitlePage();

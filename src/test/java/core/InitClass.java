@@ -1,16 +1,13 @@
 package core;
 
-import lib.ui.ChangeCityUnit;
-import lib.ui.GetResultsPage;
-import lib.ui.MainPage;
-import lib.ui.MedicalServicesPage;
-import lib.ui.SearchPage;
+import lib.ui.*;
 import lib.ui.shop.CartPage;
 import lib.ui.shop.ShopListPage;
 
 public class InitClass {
 
     public static MainPage mainPage = new MainPage();
+    public static SideBarPopupUnit sideBarPopupUnit = new SideBarPopupUnit();
     public static ShopListPage shopListPage = new ShopListPage();
     public static CartPage cartPage = new CartPage();
     public static ChangeCityUnit changeCityUnit = new ChangeCityUnit();

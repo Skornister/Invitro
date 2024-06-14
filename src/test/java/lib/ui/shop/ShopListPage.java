@@ -4,6 +4,7 @@ import static core.PropertyReader.ss;
 
 import com.codeborne.selenide.Condition;
 
+import io.cucumber.java.en.Given;
 import io.qameta.allure.Step;
 
 public class ShopListPage {
@@ -20,6 +21,7 @@ public class ShopListPage {
     }
 
     @Step("Add product to cart")
+    @Given("Добавить продукт в корзину")
     public ShopListPage addProductToCart() {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Add product to cart");
         ss("shop.product.addToCard").should(Condition.visible)
@@ -30,6 +32,7 @@ public class ShopListPage {
     }
 
     @Step("Open Cart page")
+    @Given("Открыть страницу корзины")
     public CartPage openPageCart() {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Open Cart page");
         ss("header.cart").should(Condition.visible)

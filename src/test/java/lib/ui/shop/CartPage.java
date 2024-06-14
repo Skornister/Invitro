@@ -6,6 +6,7 @@ import static core.PropertyReader.ss;
 
 import com.codeborne.selenide.Condition;
 
+import io.cucumber.java.en.Given;
 import io.qameta.allure.Step;
 
 public class CartPage {
@@ -24,6 +25,7 @@ public class CartPage {
     }
 
     @Step("Assert: Product in cart")
+    @Given("Проверка: Продукт в корзине")
     public CartPage assertProductInCart() {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Assert: Product in cart");
         ss("cart.product").should(Condition.visible)
@@ -32,6 +34,7 @@ public class CartPage {
     }
 
     @Step("Clear cart")
+    @Given("Нажать кнопку Очистить корзину")
     public CartPage clearCart() {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Clear cart");
         ss("cart.clear").should(Condition.visible)
@@ -42,6 +45,7 @@ public class CartPage {
     }
 
     @Step("Assert: Cart is empty")
+    @Given("Проверка: Корзина пуста")
     public CartPage assertCartEmpty() {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Assert: Cart is empty");
         ss("cart.product").shouldNot(Condition.visible);
