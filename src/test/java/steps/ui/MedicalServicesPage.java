@@ -1,24 +1,22 @@
-package lib.ui;
-
-import static core.BaseMethods.s$;
-import static core.BaseMethods.s$$;
-import static core.PropertyReader.s;
-import static core.PropertyReader.ss;
+package steps.ui;
 
 import com.codeborne.selenide.Condition;
+import io.cucumber.java.en.Given;
+import steps.ui.core.Strings;
 
-import io.qameta.allure.Step;
+import static steps.ui.core.BaseMethods.s$;
+import static steps.ui.core.BaseMethods.s$$;
 
 public class MedicalServicesPage {
 
-    @Step("Click on all menu and check titlePage")
+    @Given("Прокликать все меню, проверяя заголовок страницы")
     public MedicalServicesPage clickAllMenuAndCheckTitlePage() {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Click on all menu and check titlePage");
 
-        ss("MedicalServices.side-bar.item.second.text").should(Condition.visible);
+        s$(Strings.MedicalServices_side_bar_item_second_text).should(Condition.visible);
 
-        String itemSecond = s("MedicalServices.side-bar.item.second.text");
-        String itemThird = s("MedicalServices.side-bar.item.third.active.text");
+        String itemSecond = Strings.MedicalServices_side_bar_item_second_text;
+        String itemThird = Strings.MedicalServices_side_bar_item_third_active_text;
 
         int countItemSecond = s$$(itemSecond).size();
 
@@ -36,11 +34,10 @@ public class MedicalServicesPage {
         return this;
     }
 
-    @Step("Click on menu '{index}' and check titlePage")
     private MedicalServicesPage clickMenuAndCheckTitlePage(int index) {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Click on menu '" + index + "' and check titlePage");
 
-        String itemSecond = s("MedicalServices.side-bar.item.second.text");
+        String itemSecond = Strings.MedicalServices_side_bar_item_second_text;
 
         s$$(itemSecond).get(index)
                 .should(Condition.visible)
@@ -49,17 +46,16 @@ public class MedicalServicesPage {
                 .click();
         String titlePage = s$$(itemSecond).get(index)
                 .getText();
-        ss("titlePage").should(Condition.visible, Condition.text(titlePage))
+        s$(Strings.titlePage).should(Condition.visible, Condition.text(titlePage))
                 .scrollIntoView("{behavior: 'instant', block: 'center', inline: 'center'}")
                 .highlight();
         return this;
     }
 
-    @Step("Click on submenu '{index}' and check titlePage")
     private MedicalServicesPage clickSubmenuAndCheckTitlePage(int index) {
         System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName() + ": Click on submenu '" + index + "' and check titlePage");
 
-        String itemThird = s("MedicalServices.side-bar.item.third.active.text");
+        String itemThird = Strings.MedicalServices_side_bar_item_third_active_text;
 
         s$$(itemThird).get(index)
                 .should(Condition.visible)
@@ -68,7 +64,7 @@ public class MedicalServicesPage {
                 .click();
         String titlePage = s$$(itemThird).get(index)
                 .getText();
-        ss("titlePage").should(Condition.visible, Condition.text(titlePage))
+        s$(Strings.titlePage).should(Condition.visible, Condition.text(titlePage))
                 .scrollIntoView("{behavior: 'instant', block: 'center', inline: 'center'}")
                 .highlight();
         return this;

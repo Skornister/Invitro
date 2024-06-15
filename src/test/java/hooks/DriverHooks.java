@@ -1,14 +1,14 @@
-package core.driver;
+package hooks;
 
 import com.codeborne.selenide.Configuration;
-
+import io.cucumber.java.Before;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import core.config.ConfigReader;
+public class DriverHooks {
 
-public class ConfWebDriver {
-    public static void configure() {
+    @Before
+    public void setUpDriverBeforeScenario() {
         ChromeOptions chromeOptions = new ChromeOptions();
         //chromeOptions.addArguments("--headless");
         //chromeOptions.addArguments("--no-gpu");
@@ -23,9 +23,8 @@ public class ConfWebDriver {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
         Configuration.browserCapabilities = capabilities;
-        Configuration.timeout = 10000;
-        Configuration.browser = ConfigReader.webConfig.browser();
-        Configuration.browserSize = ConfigReader.webConfig.browserSize();
-        Configuration.browserVersion = ConfigReader.webConfig.browserVersion();
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        //Configuration.timeout = 10000;
     }
 }

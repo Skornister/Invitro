@@ -1,4 +1,4 @@
-package core;
+package steps.ui.core;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
